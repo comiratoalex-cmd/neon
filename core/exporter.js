@@ -1,1 +1,1 @@
-// exporter engine placeholder
+console.log("Exporter ativo");
