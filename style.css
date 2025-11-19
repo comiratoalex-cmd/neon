@@ -6,54 +6,60 @@ body {
   overflow: hidden;
 }
 
+#collapseBtn {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  padding: 10px 13px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 6px;
+  font-size: 22px;
+  cursor: pointer;
+  z-index: 99999;
+}
+
 #sidebar {
   position: fixed;
-  left: 0;
   top: 0;
-  width: 340px;
+  left: 0;
+  width: 280px;
   height: 100vh;
+  padding: 15px;
   background: rgba(255,255,255,0.05);
   backdrop-filter: blur(20px);
-  padding: 25px;
-  overflow-y: auto;
   border-right: 2px solid rgba(255,255,255,0.1);
+  overflow-y: auto;
   transition: 0.3s;
 }
 
 #sidebar.collapsed {
-  transform: translateX(-350px);
-}
-
-#collapseBtn {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  background: rgba(255,255,255,0.1);
-  padding: 10px 12px;
-  font-size: 22px;
-  border-radius: 6px;
-  cursor: pointer;
-  z-index: 100;
+  transform: translateX(-290px);
 }
 
 #previewArea {
   width: 100vw;
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 #preview {
-  position: absolute;
-  width: 80%;
-  height: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 12px;
   background-size: 400% 400%;
-  transition: 0.2s linear;
+  z-index: 9999;
 }
 
 .color-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
+  gap: 7px;
+}
+
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
 }
