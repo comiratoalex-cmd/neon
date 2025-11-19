@@ -1,1 +1,3 @@
-// Ultra PRO presets placeholder
+function applyPreset(preset) {
+  console.log("Preset:", preset);
+}
