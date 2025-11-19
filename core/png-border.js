@@ -1,1 +1,3 @@
-// Ultra PRO png-border placeholder
+function drawPNGBorder(src) {
+  console.log("PNG border:", src);
+}
