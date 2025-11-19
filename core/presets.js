@@ -1,20 +1,14 @@
-function applyPreset(p) {
-  if (p === "pastel") {
-    c1.value = "#ff9bff";
-    c2.value = "#d8b6ff";
-    c3.value = "#a8d8ff";
-    c4.value = "#a1ffe7";
-    c5.value = "#fffca8";
-    c6.value = "#ffc4a8";
-  }
+function applyPreset(preset) {
+  const list = {
+    pastel: ["#ff9bff", "#d8b6ff", "#a8d8ff", "#a1ffe7", "#fffca8", "#ffc4a8"],
+    aurora: ["#00ffa6", "#00e1ff", "#007bff", "#b400ff", "#ff00c8", "#ff0066"],
+    cyber:  ["#00eaff", "#008cff", "#0033ff", "#7a00ff", "#ff007a", "#ff0020"]
+  };
 
-  if (p === "aurora") {
-    c1.value = "#00ffa6";
-    c2.value = "#00e1ff";
-    c3.value = "#007bff";
-    c4.value = "#b400ff";
-    c5.value = "#ff00c8";
-    c6.value = "#ff0066";
+  if (preset !== "custom") {
+    [c1, c2, c3, c4, c5, c6].forEach((el, i) =>
+      el.value = list[preset][i]
+    );
   }
 
   updateBorder();
