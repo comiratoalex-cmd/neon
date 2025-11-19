@@ -1,1 +1,1 @@
-console.log("Exporter ativo");
+console.log("Exporter ativo (placeholder)");
