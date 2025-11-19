@@ -9,96 +9,73 @@
 
 <body>
 
-<!-- Fundo com partículas -->
-<canvas id="particles"></canvas>
-
-<!-- Botão de abrir/fechar painel -->
 <div id="collapseBtn">☰</div>
 
-<!-- Painel lateral -->
 <aside id="sidebar">
-<h1>Neon Border Generator PRO</h1>
 
-<section>
+<h1>Neon Border<br>Generator PRO</h1>
+
 <label>Tipo de Borda</label>
 <select id="borderType">
-<option value="line">Linha Superior</option>
-<option value="rectangle">Retângulo 360°</option>
-<option value="ellipse">Elipse</option>
-<option value="png">PNG Personalizado</option>
+  <option value="line">Linha Superior</option>
+  <option value="rectangle">Retângulo</option>
+  <option value="ellipse">Elipse</option>
+  <option value="png">PNG Personalizado</option>
 </select>
-</section>
 
-<section>
 <label>Preset</label>
 <select id="presetSelect">
-<option value="custom">Custom</option>
-<option value="pastel">Pastel</option>
-<option value="aurora">Aurora</option>
-<option value="cyber">Cyberpunk</option>
-<option value="vapor">Vaporwave</option>
-<option value="galaxy">Galaxy</option>
-<option value="ice">Ice</option>
+  <option value="custom">Custom</option>
+  <option value="pastel">Pastel</option>
+  <option value="aurora">Aurora</option>
+  <option value="cyber">Cyberpunk</option>
 </select>
-</section>
 
-<section>
 <label>RGB Mode</label>
 <select id="rgbMode">
-<option value="off">Off</option>
-<option value="rainbow">Rainbow</option>
-<option value="smooth">Smooth</option>
-<option value="firestorm">FireStorm</option>
-<option value="ultraSlow">Ultra Slow</option>
+  <option value="off">Off</option>
+  <option value="rainbow">Rainbow</option>
+  <option value="smooth">Smooth</option>
 </select>
-</section>
 
-<section>
 <label>Cores do gradiente</label>
 <div class="color-grid">
-<input type="color" id="c1" value="#ff00f7">
-<input type="color" id="c2" value="#b96bff">
-<input type="color" id="c3" value="#6da6ff">
-<input type="color" id="c4" value="#20ffe7">
-<input type="color" id="c5" value="#ffec7a">
-<input type="color" id="c6" value="#ff9a5f">
+  <input type="color" id="c1" value="#ff00f7">
+  <input type="color" id="c2" value="#b96bff">
+  <input type="color" id="c3" value="#6da6ff">
+  <input type="color" id="c4" value="#20ffe7">
+  <input type="color" id="c5" value="#ffec7a">
+  <input type="color" id="c6" value="#ff9a5f">
 </div>
-</section>
 
-<section>
 <label>PNG Border</label>
 <input type="file" id="pngUpload" accept="image/png">
-</section>
 
-<section>
 <label>OBS Link</label>
 <input id="obsLink" readonly>
 <button id="copyObs">Copiar</button>
 <button id="openOBS">Abrir no OBS</button>
-</section>
 
 <button id="toggleTheme">Tema Claro / Escuro</button>
 <button id="exportWebm">Exportar WEBM</button>
 
 </aside>
 
-<!-- ÁREA DE PREVIEW -->
 <main id="previewArea">
+
+<!-- AQUI A BORDA É DESENHADA -->
 <div id="preview"></div>
+
+<!-- PNG BORDER CANVAS -->
 <canvas id="pngCanvas"></canvas>
+
 </main>
 
-<!-- Módulos -->
 <script src="core/presets.js"></script>
 <script src="core/shapes.js"></script>
 <script src="core/obs-link.js"></script>
 <script src="core/png-border.js"></script>
 <script src="core/animation-engine.js"></script>
-<script src="core/ai-autoborder.js"></script>
-<script src="core/webcam.js"></script>
-<script src="core/exporter.js"></script>
-
-<!-- Código principal -->
 <script src="app.js"></script>
 
 </body>
