@@ -8,12 +8,12 @@ body {
 
 #collapseBtn {
   position: fixed;
-  top: 10px;
-  left: 10px;
-  padding: 10px 13px;
+  top: 15px;
+  left: 15px;
+  font-size: 25px;
   background: rgba(255,255,255,0.15);
+  padding: 8px 12px;
   border-radius: 6px;
-  font-size: 22px;
   cursor: pointer;
   z-index: 99999;
 }
@@ -24,16 +24,12 @@ body {
   left: 0;
   width: 280px;
   height: 100vh;
-  padding: 15px;
-  background: rgba(255,255,255,0.05);
+  background: rgba(255,255,255,0.07);
   backdrop-filter: blur(20px);
-  border-right: 2px solid rgba(255,255,255,0.1);
+  padding: 20px;
+  border-right: 2px solid rgba(255,255,255,0.15);
   overflow-y: auto;
-  transition: 0.3s;
-}
-
-#sidebar.collapsed {
-  transform: translateX(-290px);
+  z-index: 9999;
 }
 
 #previewArea {
@@ -45,21 +41,27 @@ body {
   position: fixed;
   top: 0;
   left: 0;
+  height: 14px;
   width: 100vw;
-  height: 12px;
   background-size: 400% 400%;
-  z-index: 9999;
+  z-index: 999;
 }
 
 .color-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 7px;
+  gap: 6px;
+  margin-bottom: 10px;
 }
 
 canvas {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   display: none;
+}
+
+.btn-row {
+  display: flex;
+  gap: 5px;
 }
