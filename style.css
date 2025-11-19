@@ -1,67 +1,82 @@
-body {
-  margin: 0;
-  background: #0a0a13;
-  color: white;
-  font-family: Arial, sans-serif;
-  overflow: hidden;
+// ============ UPDATE BORDER ============
+function updateBorder() {
+  const preview = document.getElementById("preview");
+
+  const colors = [
+    c1.value, c2.value, c3.value,
+    c4.value, c5.value, c6.value
+  ];
+
+  preview.style.background = `linear-gradient(90deg, ${colors.join(",")})`;
+  preview.style.backgroundSize = "400% 400%";
+
+  applyShape(borderType.value);
+  generateOBSLink();
 }
 
-#collapseBtn {
-  position: fixed;
-  top: 15px;
-  left: 15px;
-  font-size: 25px;
-  background: rgba(255,255,255,0.15);
-  padding: 8px 12px;
-  border-radius: 6px;
-  cursor: pointer;
-  z-index: 99999;
+// ============ PRESETS ============
+presetSelect.addEventListener("change", () => {
+  applyPreset(presetSelect.value);
+});
+
+// ============ RGB MODES ============
+function applyRGBMode() {
+  const val = rgbMode.value;
+
+  if (val === "off") {
+    preview.style.animation = "none";
+  }
+
+  if (val === "rainbow") {
+    preview.style.animation = "rgbRainbow 4s infinite linear";
+  }
+
+  if (val === "smooth") {
+    preview.style.animation = "rgbSmooth 6s infinite linear";
+  }
 }
 
-#sidebar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 280px;
-  height: 100vh;
-  background: rgba(255,255,255,0.07);
-  backdrop-filter: blur(20px);
-  padding: 20px;
-  border-right: 2px solid rgba(255,255,255,0.15);
-  overflow-y: auto;
-  z-index: 9999;
-}
+rgbMode.addEventListener("change", applyRGBMode);
 
-#previewArea {
-  width: 100vw;
-  height: 100vh;
+// RGB Keyframes
+const style = document.createElement("style");
+style.innerHTML = `
+@keyframes rgbRainbow {
+  0%{ filter:hue-rotate(0deg); }
+  100%{ filter:hue-rotate(360deg); }
 }
+@keyframes rgbSmooth {
+  0%{ filter:hue-rotate(0deg); }
+  100%{ filter:hue-rotate(720deg); }
+}
+`;
+document.head.appendChild(style);
 
-#preview {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 14px;
-  width: 100vw;
-  background-size: 400% 400%;
-  z-index: 999;
-}
+// ============ PNG MODE ============
+pngUpload.addEventListener("change", () => {
+  document.getElementById("borderType").value = "png";
+  applyShape("png");
+});
 
-.color-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 6px;
-  margin-bottom: 10px;
-}
+// ============ THEME TOGGLE ============
+toggleTheme.addEventListener("click", () => {
+  document.body.classList.toggle("light");
+});
 
-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  display: none;
-}
+// ============ EXPORT WEBM ============
+exportWebm.addEventListener("click", () => {
+  alert("Export WEBM ainda é placeholder 😅");
+});
 
-.btn-row {
-  display: flex;
-  gap: 5px;
-}
+// ============ COLLAPSE MENU ============
+collapseBtn.onclick = () => {
+  sidebar.classList.toggle("collapsed");
+};
+
+// ============ START ============
+document.querySelectorAll("input,select").forEach(el =>
+  el.addEventListener("input", updateBorder)
+);
+
+updateBorder();
+applyRGBMode();
