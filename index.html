@@ -3,83 +3,52 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Neon Border Generator PRO</title>
+<title>Neon Border PRO — Clean Version</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div id="collapseBtn">☰</div>
+<div id="sidebar">
+  <h1>Neon Border<br>PRO CLEAN</h1>
 
-<aside id="sidebar">
+  <label>Tipo de Borda</label>
+  <select id="borderType">
+    <option value="line">Linha</option>
+    <option value="rectangle">Retângulo</option>
+    <option value="ellipse">Elipse</option>
+    <option value="png">PNG Border</option>
+  </select>
 
-<h1>Neon Border<br>Generator PRO</h1>
+  <label>Preset</label>
+  <select id="presetSelect">
+    <option value="custom">Custom</option>
+    <option value="pastel">Pastel</option>
+    <option value="aurora">Aurora</option>
+    <option value="cyber">Cyberpunk</option>
+  </select>
 
-<label>Tipo de Borda</label>
-<select id="borderType">
-  <option value="line">Linha Superior</option>
-  <option value="rectangle">Retângulo</option>
-  <option value="ellipse">Elipse</option>
-  <option value="png">PNG Personalizado</option>
-</select>
+  <label>Cores</label>
+  <div class="colors">
+    <input type="color" id="c1" value="#ff00f7">
+    <input type="color" id="c2" value="#b96bff">
+    <input type="color" id="c3" value="#6da6ff">
+    <input type="color" id="c4" value="#20ffe7">
+  </div>
 
-<label>Preset</label>
-<select id="presetSelect">
-  <option value="custom">Custom</option>
-  <option value="pastel">Pastel</option>
-  <option value="aurora">Aurora</option>
-  <option value="cyber">Cyberpunk</option>
-</select>
+  <label>PNG (opcional)</label>
+  <input type="file" id="pngUpload" accept="image/png">
 
-<label>RGB Mode</label>
-<select id="rgbMode">
-  <option value="off">Off</option>
-  <option value="rainbow">Rainbow</option>
-  <option value="smooth">Smooth</option>
-</select>
+  <h3>OBS Link</h3>
+  <input id="obsLink" readonly>
 
-<label>Cores do gradiente</label>
-<div class="color-grid">
-  <input type="color" id="c1" value="#ff00f7">
-  <input type="color" id="c2" value="#b96bff">
-  <input type="color" id="c3" value="#6da6ff">
-  <input type="color" id="c4" value="#20ffe7">
-  <input type="color" id="c5" value="#ffec7a">
-  <input type="color" id="c6" value="#ff9a5f">
+  <button id="copyOBS">Copiar</button>
+
 </div>
 
-<label>PNG Border</label>
-<input type="file" id="pngUpload" accept="image/png">
+<div id="preview"></div>
+<canvas id="pngCanvas"></canvas>
 
-<label>OBS Link</label>
-<input id="obsLink" readonly>
-
-<div class="btn-row">
-  <button id="copyObs">Copiar</button>
-  <button id="openOBS">Abrir OBS</button>
-</div>
-
-<button id="toggleTheme">Tema Claro/Escuro</button>
-<button id="exportWebm">Exportar WEBM</button>
-
-</aside>
-
-<main id="previewArea">
-  <div id="preview"></div>
-  <canvas id="pngCanvas"></canvas>
-</main>
-
-<!-- MODULES -->
-<script src="core/presets.js"></script>
-<script src="core/shapes.js"></script>
-<script src="core/obs-link.js"></script>
-<script src="core/png-border.js"></script>
-<script src="core/animation-engine.js"></script>
-<script src="core/ai-autoborder.js"></script>
-<script src="core/webcam.js"></script>
-<script src="core/exporter.js"></script>
-
-<!-- MAIN APP -->
 <script src="app.js"></script>
 
 </body>
