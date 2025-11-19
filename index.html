@@ -9,10 +9,8 @@
 
 <body>
 
-<!-- Botão de colapsar -->
 <div id="collapseBtn">☰</div>
 
-<!-- Painel lateral -->
 <aside id="sidebar">
 
 <h1>Neon Border<br>Generator PRO</h1>
@@ -56,25 +54,22 @@
 <label>OBS Link</label>
 <input id="obsLink" readonly>
 
-<div style="margin-top:5px; display:flex; gap:5px;">
+<div class="btn-row">
   <button id="copyObs">Copiar</button>
-  <button id="openOBS">Abrir no OBS</button>
+  <button id="openOBS">Abrir OBS</button>
 </div>
 
-<br>
-
-<button id="toggleTheme">Tema Claro / Escuro</button>
+<button id="toggleTheme">Tema Claro/Escuro</button>
 <button id="exportWebm">Exportar WEBM</button>
 
 </aside>
 
-<!-- PREVIEW -->
 <main id="previewArea">
   <div id="preview"></div>
   <canvas id="pngCanvas"></canvas>
 </main>
 
-<!-- Módulos -->
+<!-- MODULES -->
 <script src="core/presets.js"></script>
 <script src="core/shapes.js"></script>
 <script src="core/obs-link.js"></script>
@@ -84,7 +79,7 @@
 <script src="core/webcam.js"></script>
 <script src="core/exporter.js"></script>
 
-<!-- App Principal -->
+<!-- MAIN APP -->
 <script src="app.js"></script>
 
 </body>
