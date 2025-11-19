@@ -1,1 +1,1 @@
-// animation engine placeholder
+console.log("Animation engine ativo");
