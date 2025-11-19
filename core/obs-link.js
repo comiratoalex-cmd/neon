@@ -1,9 +1,13 @@
 function generateOBSLink() {
-  const url = window.location.origin + window.location.pathname + "?border=1";
-  document.getElementById("obsLink").value = url;
+  const link = window.location.origin + window.location.pathname + "?overlay=1";
+  document.getElementById("obsLink").value = link;
 }
 
 copyObs.onclick = () => {
   obsLink.select();
   document.execCommand("copy");
+};
+
+openOBS.onclick = () => {
+  window.open(obsLink.value, "_blank");
 };
