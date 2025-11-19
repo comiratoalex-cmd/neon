@@ -1,82 +1,50 @@
-// ============ UPDATE BORDER ============
-function updateBorder() {
-  const preview = document.getElementById("preview");
-
-  const colors = [
-    c1.value, c2.value, c3.value,
-    c4.value, c5.value, c6.value
-  ];
-
-  preview.style.background = `linear-gradient(90deg, ${colors.join(",")})`;
-  preview.style.backgroundSize = "400% 400%";
-
-  applyShape(borderType.value);
-  generateOBSLink();
+body {
+  margin: 0;
+  background: #0a0a13;
+  font-family: Arial;
 }
 
-// ============ PRESETS ============
-presetSelect.addEventListener("change", () => {
-  applyPreset(presetSelect.value);
-});
-
-// ============ RGB MODES ============
-function applyRGBMode() {
-  const val = rgbMode.value;
-
-  if (val === "off") {
-    preview.style.animation = "none";
-  }
-
-  if (val === "rainbow") {
-    preview.style.animation = "rgbRainbow 4s infinite linear";
-  }
-
-  if (val === "smooth") {
-    preview.style.animation = "rgbSmooth 6s infinite linear";
-  }
+#sidebar {
+  position: fixed;
+  width: 260px;
+  height: 100vh;
+  background: #111;
+  color: white;
+  padding: 20px;
+  box-sizing: border-box;
+  border-right: 2px solid #333;
 }
 
-rgbMode.addEventListener("change", applyRGBMode);
-
-// RGB Keyframes
-const style = document.createElement("style");
-style.innerHTML = `
-@keyframes rgbRainbow {
-  0%{ filter:hue-rotate(0deg); }
-  100%{ filter:hue-rotate(360deg); }
+label {
+  display: block;
+  margin-top: 15px;
+  font-size: 14px;
 }
-@keyframes rgbSmooth {
-  0%{ filter:hue-rotate(0deg); }
-  100%{ filter:hue-rotate(720deg); }
+
+.colors {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5px;
 }
-`;
-document.head.appendChild(style);
 
-// ============ PNG MODE ============
-pngUpload.addEventListener("change", () => {
-  document.getElementById("borderType").value = "png";
-  applyShape("png");
-});
+#preview {
+  position: fixed;
+  top: 0;
+  left: 260px;
+  right: 0;
+  height: 12px;
+  background-size: 300% 300%;
+  animation: slide 6s linear infinite;
+}
 
-// ============ THEME TOGGLE ============
-toggleTheme.addEventListener("click", () => {
-  document.body.classList.toggle("light");
-});
+@keyframes slide {
+  0%{ background-position: 0% 50%; }
+  100%{ background-position: 200% 50%; }
+}
 
-// ============ EXPORT WEBM ============
-exportWebm.addEventListener("click", () => {
-  alert("Export WEBM ainda é placeholder 😅");
-});
-
-// ============ COLLAPSE MENU ============
-collapseBtn.onclick = () => {
-  sidebar.classList.toggle("collapsed");
-};
-
-// ============ START ============
-document.querySelectorAll("input,select").forEach(el =>
-  el.addEventListener("input", updateBorder)
-);
-
-updateBorder();
-applyRGBMode();
+#pngCanvas {
+  position: fixed;
+  top: 100px;
+  left: 300px;
+  display: none;
+}
