@@ -1,1 +1,1 @@
-// webcam system placeholder
+console.log("Webcam system ready");
