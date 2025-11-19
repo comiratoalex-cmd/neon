@@ -1,1 +1,1 @@
-console.log("AI AutoBorder carregado");
+console.log("AI AutoBorder ativo (placeholder)");
