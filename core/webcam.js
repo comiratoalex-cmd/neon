@@ -1,1 +1,1 @@
-console.log("Webcam system ready");
+console.log("Webcam module ativo (placeholder)");
